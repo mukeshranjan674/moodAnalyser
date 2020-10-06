@@ -18,4 +18,10 @@ public class MoodAnalyserTest {
 		String result = mood.analyseMood();
 		Assert.assertEquals("HAPPY", result);
 	}
+	@Test
+	public void whenGiven_IProper_Should_ThrowException() {
+		MoodAnalyser mood = new MoodAnalyser(null);
+		String result = mood.analyseMood();
+		Assert.assertEquals("HAPPY", result);
+	}
 }
