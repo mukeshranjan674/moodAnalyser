@@ -7,21 +7,44 @@ public class MoodAnalyserTest {
 
 	@Test
 	public void whenGiven_Improper_ShouldReturn_Sad() {
-		MoodAnalyser mood = new MoodAnalyser();
-		String result = mood.analyseMood("This is a sad message");
-		Assert.assertEquals("SAD", result);
+		MoodAnalyser mood = new MoodAnalyser("this is a sad message");
+		try {
+			String result = mood.analyseMood();
+		} catch (MoodAnalysisException e) {
+			Assert.assertEquals("Invalid mood entered", e.getMessage());
+		}
 	}
 
 	@Test
 	public void whenGiven_Proper_ShouldReturn_Happy() {
-		MoodAnalyser mood = new MoodAnalyser();
-		String result = mood.analyseMood("This is a happy message");
-		Assert.assertEquals("HAPPY", result);
+		MoodAnalyser mood = new MoodAnalyser("This is a happy message");
+		try {
+			String result = mood.analyseMood();
+
+		} catch (MoodAnalysisException e) {
+			Assert.assertEquals("Invalid mood entered", e.getMessage());
+		}
 	}
+
 	@Test
-	public void whenGiven_NULL_ShouldReturn_Happy() {
-		MoodAnalyser mood = new MoodAnalyser();
-		String result = mood.analyseMood(null);
-		Assert.assertEquals("HAPPY", result);
+	public void whenGiven_NULL_ShouldThrow_CustomException() {
+		MoodAnalyser mood = new MoodAnalyser(null);
+		try {
+			mood.analyseMood();
+		} catch (MoodAnalysisException e) {
+			Assert.assertEquals("Invalid mood entered", e.getMessage());
+		}
+
+	}
+
+	@Test
+	public void whenGiven_Empty_ShouldThrow_CustomException() {
+		MoodAnalyser mood = new MoodAnalyser("");
+		try {
+			mood.analyseMood();
+		} catch (MoodAnalysisException e) {
+			Assert.assertEquals("Invalid mood entered", e.getMessage());
+		}
+
 	}
 }

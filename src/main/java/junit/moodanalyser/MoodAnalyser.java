@@ -2,21 +2,21 @@ package junit.moodanalyser;
 
 public class MoodAnalyser {
 
-	String message;
+	private String message;
 
-	public MoodAnalyser() {
-		super();
+	public MoodAnalyser(String message) {
+		this.message = message;
 	}
 
-	public String analyseMood(String message) {
+	public String analyseMood() throws MoodAnalysisException {
 		try {
 			if (message.contains("happy")) {
 				return "HAPPY";
 			} else {
 				return "SAD";
 			}
-		} catch (Exception e) {
-			return "HAPPY";
+		} catch (NullPointerException e) {
+			throw new MoodAnalysisException("Invalid mood entered");
 		}
 	}
 }
