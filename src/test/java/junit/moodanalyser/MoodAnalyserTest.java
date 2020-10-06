@@ -10,8 +10,9 @@ public class MoodAnalyserTest {
 		MoodAnalyser mood = new MoodAnalyser("this is a sad message");
 		try {
 			String result = mood.analyseMood();
+			Assert.assertEquals("SAD", result);
 		} catch (MoodAnalysisException e) {
-			Assert.assertEquals("Invalid mood entered", e.getMessage());
+
 		}
 	}
 
@@ -20,9 +21,10 @@ public class MoodAnalyserTest {
 		MoodAnalyser mood = new MoodAnalyser("This is a happy message");
 		try {
 			String result = mood.analyseMood();
+			Assert.assertEquals("HAPPY", result);
 
 		} catch (MoodAnalysisException e) {
-			Assert.assertEquals("Invalid mood entered", e.getMessage());
+
 		}
 	}
 
