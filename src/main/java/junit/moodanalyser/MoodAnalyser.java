@@ -1,18 +1,18 @@
 package junit.moodanalyser;
 
 public class MoodAnalyser {
-	
+
 	String message;
-	
-	public MoodAnalyser(String message) {
-		this.message = message;
+
+	public MoodAnalyser() {
+		super();
 	}
-	public String analyseMood() {
-			if(message.contains("happy")) {
-				return "HAPPY";
-			}
-			else {
-				return "SAD";
-			}
+
+	public String analyseMood(String message) {
+		if (message.contains("happy")) {
+			return "HAPPY";
+		} else {
+			return "SAD";
+		}
 	}
 }
