@@ -8,7 +8,7 @@ public class MoodAnalyserTest {
 	@Test
 	public void whenGiven_Improper_ShouldReturn_Sad() {
 		MoodAnalyser mood = new MoodAnalyser();
-		String result = mood.analyseMood("This is a sad message");
+		String result = mood.analyseMood("I am in Sad Mood");
 		Assert.assertEquals("SAD", result);
 	}
 
