@@ -18,11 +18,11 @@ public class MoodAnalyser {
 		try {
 			if (message.length() == 0)
 				throw new InvalidMoodException(ExceptionType.ENTERED_EMPTY, "Invalid Mood");
-			if (message.contains("Sad")) {
+			if (message.contains("Sad"))
 				return "SAD";
-			} else {
+			else
 				return "HAPPY";
-			}
+
 		} catch (NullPointerException e) {
 			throw new InvalidMoodException(ExceptionType.ENTERED_NULL, "Invalid Mood");
 		}
