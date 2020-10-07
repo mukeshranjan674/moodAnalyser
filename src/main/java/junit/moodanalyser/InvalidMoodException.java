@@ -1,9 +1,16 @@
 package junit.moodanalyser;
 
 public class InvalidMoodException extends Exception {
-	public InvalidMoodException(String message) {
-		super(message);
+
+	enum ExceptionType {
+		ENTERED_NULL, ENTERED_EMPTY;
 	}
-	
+
+	ExceptionType type;
+
+	public InvalidMoodException(ExceptionType type, String message) {
+		super(message);
+		this.type = type;
+	}
 
 }
